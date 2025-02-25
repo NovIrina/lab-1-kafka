@@ -14,6 +14,8 @@ if "metric" not in st.session_state:
     st.session_state["metric"] = []
 if "ratings" not in st.session_state:
     st.session_state["ratings"] = []
+if "popularities" not in st.session_state:
+    st.session_state["popularities"] = []
 
 consumer = KafkaConsumer(
     config=
@@ -27,7 +29,7 @@ consumer.subscribe(topics='results')
 
 st.title("Results")
 chart_holder_metrics = st.empty()
-chart_holder_histogram = st.empty()
+popularity_vs_rating = st.empty()
 
 while True:
     msgs = consumer.consume(num_messages=1, timeout=10)
@@ -41,20 +43,14 @@ while True:
 
             st.session_state['metric'].append(results_data['metric'])
             st.session_state['ratings'].append(*results_data['rating'])
+            st.session_state['popularities'].append(results_data['original']['features'][0]['popularity'])
 
         df = pd.DataFrame.from_dict(st.session_state['metric'])
         chart_holder_metrics.line_chart(df)
 
-        if len(st.session_state['ratings']) > 1:
-            print(st.session_state['ratings'])
-            fig, ax = plt.subplots(figsize=(8, 3))
-            sns.histplot(st.session_state['ratings'], bins=10, kde=True, color='green', ax=ax)
-            ax.set_title('Rating Distribution')
-            ax.set_xlabel('Rating')
-            ax.set_ylabel('Frequency')
+        df_2 = pd.DataFrame({
+            'Rating': st.session_state['ratings'],
+            'Popularity': st.session_state['popularities']
+        })
 
-            sns.set_style('darkgrid')
-
-            chart_holder_histogram.pyplot(fig)
-
-            plt.close(fig)
+        popularity_vs_rating.line_chart(df_2)

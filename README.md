@@ -26,7 +26,9 @@
     
     
 ## Dataset
-The final dataset was created based on data provided by <a href="https://www.kaggle.com/datasets/anandshaw2001/imdb-data"> IMBD </a>, with the main purpose of film rating prediction (classification task). The final dataset contains only a part of the original dataset with preliminary processing of target to classification task. In addition, data analysis (EDA) was performed, which provided insight into the characteristics of the data, that was taking into consideration in the preprocessing final dataset.
+The dataset was created based on data provided by <a href="https://www.kaggle.com/datasets/anandshaw2001/imdb-data"> IMBD </a>, with the main purpose of film rating prediction (classification task). The final dataset contains only a part of the original dataset with preliminary processing of target to classification task. In addition, data analysis (EDA) was performed, which provided insight into the characteristics of the data, that was taking into consideration in the preprocessing stage final dataset.
+
+To download the final dataset use the following <a href="https://drive.google.com/file/d/1UydkxlfkVIlImJlA4WJqNQKSiNX75EVE/view?usp=sharing"> link </a>. After downloading, put the downloaded dataset in the `data` folder.
 
 ## Run project
 1. Create virtual environment

@@ -68,6 +68,7 @@ def main():
                     prediction = classifier.predict(X_scaled).tolist()
 
                     metrics = {
+                        'original': data,
                         'rating': prediction,
                         'metric': {}
                     }
@@ -84,6 +85,9 @@ def main():
                         cumulative_y_pred.extend(prediction)
                         processed_count += len(y_true)
 
+                        print("Cumulative metrics:")
+                        print(f"Y_true: {cumulative_y_true}")
+                        print(f"Y_pred: {cumulative_y_pred}")
                         f1 = f1_score(cumulative_y_true, cumulative_y_pred, average='weighted')
                         metrics['metric']['F1'] = f1
                         print(f"Cumulative F1 after {processed_count} entries: {f1}")
