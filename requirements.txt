@@ -1,0 +1,8 @@
+joblib
+numpy
+pandas
+confluent-kafka
+scikit-learn
+seaborn
+matplotlib
+streamlit
