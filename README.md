@@ -1,28 +1,31 @@
 ## Project structure
     
     .
+    ├── assets
+    |   ├── f1_score.png                               # Example of F1-score dashboard
+    |   └── rating_and_popularity.png                  # Example of Popularity VS Predicted Rating dashboard
     ├── data                    
-    |   └── test_data.csv                  # Final dataset prepared for analysis and processing     
+    |   └── test_data.csv                              # Final dataset prepared for analysis and processing     
     ├── model
-    |   ├── classifier.joblib              # GradientBoostingClassifier model   
-    |   ├── encoder.joblib                 # One-Hot Encoder model
-    |   └── scaler.joblib                  # StandardScaler model
+    |   ├── classifier.joblib                          # GradientBoostingClassifier model   
+    |   ├── encoder.joblib                             # One-Hot Encoder model
+    |   └── scaler.joblib                              # StandardScaler model
     ├── backend
     |   ├── __pycache__
-    |   ├── consumer.py                    # Class for working with Kafka consumer
-    |   ├── data_collection.py             # File for sending data to Kafka
-    |   ├── pipeline.py                    # ML pipeline
-    |   ├── producer.py                    # Class for working with Kafka producer
+    |   ├── consumer.py                                # Class for working with Kafka consumer
+    |   ├── data_collection.py                         # File for sending data to Kafka
+    |   ├── pipeline.py                                # ML pipeline
+    |   ├── producer.py                                # Class for working with Kafka producer
     |   ├──__init__.py
-    |   ├──preprocessing.py                # File for data preprocessing
+    |   ├──preprocessing.py                            # File for data preprocessing
     ├── frontend
-    |   ├── visualization.py               # File for visualization
-    ├── README.md                          # File with project description
-    ├── docker-compose.yaml                # Docker container
-    ├── main.py                            # Main executable file of the project
-    ├── requirements.txt                   # Project dependencies
-    ├── EDA.ipynb                          # Notebook with Exploratory Data Analysis (EDA)
-    └── .gitignore                         # File with list of folders ignored by git
+    |   ├── visualization.py                           # File for visualization
+    ├── README.md                                      # File with project description
+    ├── docker-compose.yaml                            # Docker container
+    ├── main.py                                        # Main executable file of the project
+    ├── requirements.txt                               # Project dependencies
+    ├── EDA.ipynb                                      # Notebook with Exploratory Data Analysis (EDA)
+    └── .gitignore                                     # File with list of folders ignored by git
     
     
 ## Dataset
@@ -51,7 +54,8 @@ To download the final dataset use the following <a href="https://drive.google.co
 
 ## Demonstration
 
-* Dashboard with F1 score
+* Dashboard with F1 score:
+<figure><img src="assets/f1_score.png" alt="drawing" width="500"/></figure>
 
-* Dashboard with the dependence of the predicted rating on the popularity of the film
-
+* Dashboard with the dependence of the predicted rating on the popularity of the film:
+<figure><img src="assets/rating_and_popularity.png" alt="drawing" width="500"/></figure>

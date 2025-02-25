@@ -27,8 +27,9 @@ consumer = KafkaConsumer(
 )
 consumer.subscribe(topics='results')
 
-st.title("Results")
+chart_holder_title = st.empty()
 chart_holder_metrics = st.empty()
+popularity_vs_rating_title = st.empty()
 popularity_vs_rating = st.empty()
 
 while True:
@@ -46,11 +47,14 @@ while True:
             st.session_state['popularities'].append(results_data['original']['features'][0]['popularity'])
 
         df = pd.DataFrame.from_dict(st.session_state['metric'])
+
+        chart_holder_title.title("F1 Score")
         chart_holder_metrics.line_chart(df)
 
         df_2 = pd.DataFrame({
-            'Rating': st.session_state['ratings'],
+            'Predicted rating': st.session_state['ratings'],
             'Popularity': st.session_state['popularities']
         })
 
+        popularity_vs_rating_title.title("Popularity vs Predicted rating")
         popularity_vs_rating.line_chart(df_2)
